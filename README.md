@@ -51,7 +51,7 @@ python3 code/opendata/c23_hra1_timing.py            # downloads Zenodo 321641 (3
 
 ## Planned analyses (not yet run — help welcome)
 - `rankStab` (Zenodo 7323547): lane-trajectory separability across conditioning phases.
-  Data ships as `.RData`; needs R. See `TODO_planned_analyses.md`.
+  Data ships as `.RData`; now readable via pyreadr (verified 2026-09-02) — analysis still owed. See `TODO_planned_analyses.md`.
 - SOMA-READ flagship experiment (prereg/SOMA_READ_*): needs a psychophysiology lab
   with programmable haptics. Pilot N=20 → ethics → confirmatory N=120 (80/40 sealed).
 

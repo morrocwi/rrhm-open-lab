@@ -1,0 +1,11 @@
+  within-lane  RAT ACQ<->EX: rho=+0.503 (n=64)
+  within-lane  SCR ACQ<->EX: rho=-0.171 (n=61)
+  within-lane  FPS ACQ<->EX: rho=+0.048 (n=63)
+  between-lane RAT~SCR ACQ: rho=+0.017 (n=61)
+  between-lane RAT~SCR EX: rho=-0.049 (n=63)
+  between-lane RAT~FPS ACQ: rho=+0.133 (n=63)
+  between-lane RAT~FPS EX: rho=+0.102 (n=64)
+  between-lane SCR~FPS ACQ: rho=+0.145 (n=61)
+  between-lane SCR~FPS EX: rho=+0.137 (n=63)
+C25.1 MTMM: mean within=+0.127  mean between=+0.081  diff=+0.046 -> PASS
+C25.2 end-EX RAT vs SCR: n=63 r=-0.080 quadrants=0.27/0.16 -> PASS
