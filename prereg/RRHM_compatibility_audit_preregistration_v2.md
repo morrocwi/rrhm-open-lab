@@ -292,3 +292,28 @@ Falsifier for PRHC-U: predictable ≥ unpredictable on tonic freezing (C27.1a re
 flat profile under predictable — scored against the unknown-horizon mechanism.
 
 Scores will be appended ONLY to the separate scores file after computation (C23 procedure).
+
+### C27-MAPPING (recorded after structure/codebook inspection ONLY, before any outcome computation)
+Files (inside FreezingActionPrep_RevII.zip): df_ibi.Rdata (cardiac), df_anticip.Rdata (postural
+sway, COP), df.filtered.Rdata (SCL per second), 02_method.Rmd + 03_2results.Rmd read as codebook.
+- Cue condition column = `blink`: black.PNG = predictable threat; blue.PNG = unpredictable
+  threat; yellow.PNG = safety.
+- Trial-length rule (from design): only 9-s trials enter (trials whose `blinktime` / available
+  bins indicate the 9-s duration; shorter filler trials excluded, as in the design).
+- Anticipation bins: 1-s bins; ANALYSIS WINDOW = bins 1..8 (bin 0 excluded as baseline-adjacent,
+  bin 9/edge excluded so no window edge touches the avatar-onset moment — C23 window rule).
+- Cardiac marker = log.ibi baseline-corrected per trial by subtracting that trial's bin-0 mean
+  (higher = bradycardia = freezing). Sway marker = per-trial, per-bin SD of COPYbpbc (lower =
+  freezing). Electrodermal = log.rc.scl per second.
+- C27.1a tonic: subject-mean over bins 1..8, unpredictable vs predictable; freezing larger under
+  unpredictable = PASS direction (group mean + majority of subjects, either marker, other not
+  significantly reversed by two-sided sign test p<.05).
+- C27.1b gradient: per subject x condition, OLS slope of bin-mean response over bins 1..8;
+  predictable steeper toward threat (cardiac: more positive IBI slope; sway: more negative
+  slope) than unpredictable; PASS = group-mean ordering AND >50% of subjects, >=1 marker,
+  other marker not significantly reversed.
+- C27.2: per-subject U-effect (unpredictable - predictable, bins 1..8 mean) for cardiac vs
+  electrodermal: |r| <= 0.70 AND both median-split discordant quadrants >= 15%.
+- Exclusions: none beyond missing data (frozen rule); the authors' sickness-exclusion list was
+  seen in their code — the PRIMARY run ignores it; a run adopting it may be reported only as
+  labeled sensitivity, never substituted.
