@@ -218,3 +218,77 @@ reading the full texts named above. Any AI or human continuing this work reads
 Rachman 1984 / Clark 1986 / Salkovskis 1991 in full only AFTER this file is committed
 to the working directory, and scores C16–C17 under v1's four labels with the prior
 guesses above reported win-or-lose.
+
+---
+
+## E0-B PREREGISTRATION APPEND — cases C25–C27 (FROZEN 2026-09-02, before any outcome file opened)
+
+**Standing rules inherited from C23 lessons (binding):** criteria must be failable; no analysis
+window may contain its own conclusion; effector latency must be modeled or avoided by design;
+scoring is binary PASS/FAIL against the frozen criteria only; post-hoc reanalysis of a failed
+criterion may be reported only as labeled exploratory, never as a rescue; metadata/readme may be
+read before freezing, outcome files may NOT.
+
+**Models under test (frozen, from manuscript v20 / theory freeze v0.2):**
+M0 (scalar): one latent fear/stress state; all measured channels are noisy readouts of it.
+M1 (RRHM typed lanes): experiential/behavioral/physiological lanes are typed, dynamically
+coupled but not identical; lane-specific individual structure persists across contexts.
+
+### C25 — lane typing via MTMM inequality (Zenodo 5648055, IU-Hamburg fear conditioning, n≈66)
+Holdings: record metadata + readme_iu_hamburg_reading.txt ONLY. No data CSV opened at freeze.
+Lanes: RAT (subjective rating), SCR (electrodermal), FPS (startle). Per subject, per phase,
+per lane: discrimination D = mean(CS+) − mean(CS−) over that phase's trials.
+- C25.1 (PRIMARY, MTMM inequality): mean within-lane between-phase Spearman rank correlation of
+  D across subjects (same lane, ACQ vs EX) **>** mean between-lane within-phase Spearman
+  (different lanes, same phase; average over the 3 lane pairs × ACQ and EX).
+  Rationale (frozen): under M0, between-lane/same-phase shares the same state and should exceed
+  within-lane/cross-phase (state changed); under M1, lane-specific traits persist so
+  within-lane/cross-phase exceeds between-lane. Direction is diagnostic BOTH ways.
+  PASS = inequality holds as stated. FAIL = it reverses or ties (|difference| < 0.01 = FAIL).
+- C25.2 (SECONDARY, end-of-extinction lane discordance, mirrors C23-A numbers): using each
+  subject's D over the LAST 4 extinction trials for RAT and SCR: |r|(RAT_D, SCR_D) ≤ 0.70 AND
+  both discordant quadrants by median split ≥ 15%. PASS = both. FAIL otherwise.
+Exclusion rule (frozen): include only subjects present with non-missing D in all lanes/phases
+entering a given criterion; report n per criterion. No other exclusions.
+Prior guesses (recorded): C25.1 PASS p=0.7; C25.2 PASS p=0.6.
+Falsifier for M1: C25.1 reversal (M0 pattern) is scored as a HIT AGAINST typed lanes.
+
+### C26 — cross-context transport of lane dissociation (Zenodo 4973029, Giles et al. 3-paradigm stress, single xlsx)
+Holdings at freeze: Zenodo metadata only (no readme file exists; xlsx NOT opened).
+Frozen variable precedence (to prevent forking when the sheet is first opened):
+mood lane = highest-precedence available of [PANAS negative affect change pre→post task,
+POMS total mood disturbance change, any single negative-mood rating change]; physiological
+lanes = [cortisol reactivity = post-task peak − pre-task baseline] and [HR reactivity =
+task − baseline]. Pool all stress-task participants (exclude control/no-stress condition rows).
+- C26.1: |r|(mood Δ, cortisol reactivity) ≤ 0.70 AND both discordant quadrants ≥ 15%.
+- C26.2: |r|(mood Δ, HR reactivity) ≤ 0.70 AND both discordant quadrants ≥ 15%.
+PASS = both criteria; PARTIAL is not a category (binary per criterion, reported separately).
+Effector note (frozen): cortisol lag is handled by using post-task peak, not concurrent samples.
+Prior guesses: C26.1 PASS p=0.65; C26.2 PASS p=0.65.
+Falsifier: r > 0.85 on both pairs = strong M0 pattern, scored against M1 transport.
+
+### C27 — predictability and the clamp (Zenodo 18713991, freezing/action-prep, n≈235) [PENDING-STRUCTURE]
+Holdings at freeze: Zenodo metadata description ONLY (single 302 MB zip; no codebook outside it).
+Conditions: temporally predictable threat / unpredictable threat / safe. Measures include
+postural sway, heart rate, skin conductance level, startle EMG.
+Conceptual criteria FROZEN NOW; column mapping will be appended after opening ONLY
+headers/codebook/variable lists (never outcome values), recorded as C27-MAPPING before compute.
+- C27.1a (direction, LOW diagnosticity — also predicted by rival threat-imminence models,
+  recorded as such): tonic freezing markers during anticipation (HR deceleration magnitude,
+  sway reduction) are LARGER under unpredictable than predictable threat at group level.
+- C27.1b (PRIMARY, RRHM-specific structure): the temporal gradient (slope of the anticipatory
+  response toward the threat moment) is STEEPER under predictable than unpredictable threat,
+  while the unpredictable condition shows a flatter, sustained profile. PASS = both the
+  group-mean slope ordering AND majority of subjects (>50%) individually ordered that way,
+  in at least one of the two freezing markers, with the OTHER marker not significantly reversed.
+- C27.2 (lane dissociation of the U-effect): per-subject unpredictability effect
+  (unpredictable − predictable) computed separately for cardiac and electrodermal channels:
+  |r| ≤ 0.70 AND both discordant quadrants ≥ 15%.
+Window rule (frozen): anticipation windows are defined by the DESIGN (cue onset to earliest
+possible threat onset), never by where the response peaks; no window edge may coincide with
+the tested feature's location.
+Prior guesses: C27.1a PASS p=0.75 (weakly diagnostic); C27.1b PASS p=0.6; C27.2 PASS p=0.5.
+Falsifier for PRHC-U: predictable ≥ unpredictable on tonic freezing (C27.1a reversal) AND
+flat profile under predictable — scored against the unknown-horizon mechanism.
+
+Scores will be appended ONLY to the separate scores file after computation (C23 procedure).
