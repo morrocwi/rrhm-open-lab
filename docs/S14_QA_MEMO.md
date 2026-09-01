@@ -1,4 +1,4 @@
-# S14 — SOMA-READ v1.0 bundle: QA memo (independent check by this session, 2026-09-02)
+# S14 — SOMA-READ v1.0 bundle: QA memo (independent pre-freeze QA, 2026-09-02)
 
 Reviewed: Protocol DOCX (2,606 words, rendered clean per authoring session; manipulation
 checks, ethics x8, consent x4, emergency-stop x6 all present) · Preregistration YAML ·
@@ -20,7 +20,7 @@ Data Dictionary CSV · Locked Analysis Plan MD.
   (identical stimulation + no action available → early R(t) differences cannot be
   attributed to differential stimulation or action use). ✓
 
-## Findings for the authoring session to consider BEFORE final freeze
+## Findings for the protocol authors to consider BEFORE final freeze
 (FROZEN_DRAFT_PENDING_PILOT — these are pilot-phase items, not post-hoc edits)
 1. **2-D joystick couples the two reported lanes.** R on X and E on Y of one stick
    risks motor cross-talk (artifactual correlation or decorrelation between the very
@@ -35,7 +35,7 @@ Data Dictionary CSV · Locked Analysis Plan MD.
 
 ## Provenance note on E1 Audits A/B (peer session)
 The ~25 intervention/longitudinal PMIDs coded in Audits A/B were located and read at
-abstract level by the AUTHORING session, not re-verified here. Before any publication
+abstract level by the protocol authors, not re-verified here. Before any publication
 that cites them, run this session's standard esummary/abstract verification sweep
 (the v7 procedure). The architectural corrections they forced (typed→dynamically
 coupled→S→R→(E,B,P)→A→O with feedback; Theory v0.2 FROZEN) are recorded as the

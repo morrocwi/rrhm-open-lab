@@ -3,7 +3,7 @@
 
 Ledger:   p_hat = (nC + a) / (nC + nH + a + b)          [clean typing]
 Lesion:   p_bad = (nC + a) / (nC + nH + nE + a + b)     [censored tallied as outcomes]
-Dose:     n*    = ceil( (rho*b)/(1-rho) - a ),  rho = tau_corr / D_bar_C
+Dose:     n*    = floor( (rho*b)/(1-rho) - a ) + 1 (clamped >= 0), rho = tau_corr / D_bar_C
 Fading:   k_min(nC) = max(0, ((rho*b)/(1-rho) - (nC + a)) / a_anchor)
 
 Status: Dr-tier bridge to any clinical reading; algebra is toy-exact.
@@ -21,8 +21,11 @@ def p_lesion(nC, nH, nE, a, b):
     return F(nC + a, nC + nH + nE + a + b)
 
 def n_star(rho, a, b):
+    # strict margin p_hat > rho  =>  n > (rho*b)/(1-rho) - a ; at integer boundary
+    # the strict inequality requires the NEXT integer (review fix, 2026-09-02)
+    from math import floor
     x = (rho * b) / (1 - rho) - a
-    return max(0, ceil(x))
+    return max(0, floor(x) + 1)
 
 def k_min(nC, rho, a, b, a_anchor):
     x = ((rho * b) / (1 - rho) - (nC + a)) / a_anchor

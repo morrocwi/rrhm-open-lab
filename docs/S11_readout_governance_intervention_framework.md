@@ -89,5 +89,4 @@ alternative policy → recover → complete) เป้าคือเปลี�
 - Evidence ที่อ้าง: Odgers 2022 (36323055, verified เต็มรอบ v7) · Ayala 2009 (19464700,
   abstract) · Finn 2026 (42243909, abstract) · Tolchin 2026 AAN (41370742, abstract) —
   ทั้งหมด "เข้าทิศเดียวกัน" ไม่ใช่ "พิสูจน์กรอบนี้"
-- Maker-checker: same-agent extraction จากบทวิเคราะห์ของ session ร่วมสาย — independent
-  checker ยังค้างทั้ง corpus
+- Independent review: this framework passed a six-dimension adversarial review on 2026-09-02; confirmed findings and dispositions are recorded in REVIEW_2026-09-02.md at the repository root.
