@@ -1,0 +1,25 @@
+﻿variable,type,level,unit_or_values,role,window,definition
+participant_id,string,participant,NA,identifier,all,Pseudonymous ID
+trial_id,string,trial,NA,identifier,all,Unique trial
+context,categorical,trial,A/B,factor,all,A=forearm vibration; B=transfer modality
+endpoint_obs,binary,trial,0/1,factor,all,1 exact endpoint shown
+agency_preserved,binary,trial,0/1,factor,all,1 participant controls routine pause after 12s
+duration_s,integer,trial,24/30/36,control,all,Actual programmed duration
+time_s,float,1-s/bin or native sample,seconds,time,all,Synchronized trial time
+R_readout,float,continuous,0-100,primary,all,"Prospective recoverability/readout, joystick X"
+E_distress,float,continuous,0-100,rival_lane,all,"Current distress/fear, joystick Y"
+policy_onset,binary,time bin,0/1,primary_event,all,First urge-to-stop trigger; only first event used
+routine_pause,binary,time bin,0/1,action,post12,Routine pause event
+emergency_stop,binary,time bin,0/1,action,all,Immediate participant stop
+HR,float,continuous,bpm,autonomic,all,ECG-derived heart rate
+EDA,float,continuous,uS,autonomic,all,Electrodermal activity
+resp_rate,float,continuous,breaths/min,autonomic,all,Respiration-derived
+PPG_amp,float,continuous,device units,autonomic_optional,all,Optional peripheral pulse
+motor_bracing,float,continuous,device units,secondary,all,Accelerometer/EMG composite if available
+post_trapped,float,post-trial,0-100,secondary,all,Trappedness rating
+post_urgency,float,post-trial,0-100,secondary,all,Urgency rating
+post_control,float,post-trial,0-100,manip_check,all,Perceived routine-pause control
+endpoint_confidence,float,post-trial,0-100,manip_check,all,Confidence in knowing endpoint
+trait_procedural_fear_z,float,participant,z score,moderator,all,Frozen screening composite
+valid_trial,binary,trial,0/1,quality,all,Based only on preregistered integrity rules
+exclusion_reason,string,trial/participant,text,quality,all,Recorded before outcome review where possible

@@ -1,0 +1,93 @@
+study_id: SOMA-READ-v1.0
+title: A Preregistered Causal Readout Perturbation Study of Somatic Agency and Endpoint
+  Observability
+status: FROZEN_DRAFT_PENDING_PILOT_AND_ETHICS
+date: '2026-09-02'
+theory_claim_ceiling: One bounded human causal readout domain; not universal validation
+  and not clinical guidance.
+design:
+  pilot_n: 20
+  confirmatory_n_usable: 120
+  factorial: 2x2 within-subject
+  factors:
+    endpoint_observability:
+    - observable_exact
+    - nonobservable_exact_withheld
+    somatic_agency:
+    - routine_pause_participant_control_after_12s
+    - routine_pause_external_control_after_12s
+  pure_informational_window_seconds:
+  - 0
+  - 12
+  duration_set_seconds:
+  - 24
+  - 30
+  - 36
+  context_A: forearm programmable vibrotactile stimulation
+  context_B: distinct second-site mild pressure/tactile stimulation; exact hardware
+    frozen after pilot before confirmatory recruitment
+primary_variables:
+  R_t: continuous prospective recoverability/readout joystick x-axis 0-100
+  E_t: continuous distress/fear joystick y-axis 0-100
+  P_t: first policy-onset trigger timestamp
+  A_t: routine-pause and emergency-stop timestamps
+  AUT_t:
+  - ECG_HR
+  - EDA
+  - respiration
+  - optional_PPG
+hypotheses:
+  H1: Unknown endpoint x reduced somatic agency produces largest R_t contraction and
+    earliest policy transition.
+  H2: Lagged R_t predicts later policy transition beyond lagged distress and autonomic
+    features.
+  H3: Continuous procedural fear amplifies H1.
+  H4: Measured lanes show non-identical temporal trajectories in at least a subset
+    of trials.
+  H5: Individual Unknown x Agency effect transports from Context A to Context B.
+  H6: M1 improves sealed-holdout log loss by >=5% vs M0.
+models:
+  M0: condition factors + elapsed time + trait procedural fear + lagged distress +
+    lagged autonomic features
+  M1: M0 + lagged R_t + preregistered R_t-by-condition terms
+  primary_predictive_metric: mean_log_loss
+  minimum_relative_improvement: 5%
+holdout:
+  train_n: 80
+  sealed_n: 40
+  open_once: true
+kill_criteria:
+- No Unknown x Agency interaction with passed manipulation checks.
+- R_t adds no predictive information after distress/physiology rivals.
+- No fear-linked moderation and equal floor-default in low-fear controls.
+- No measurable lane separability at acquisition resolution.
+- No above-chance cross-context transport.
+- M1 does not outperform M0 on sealed holdout.
+safety:
+  emergency_stop: always active and participant-controlled
+  forbidden:
+  - needles
+  - electrical shock
+  - noxious heat
+  - respiratory restriction
+  - syncope provocation
+  - maximal mouth opening
+  - deception about emergency stop
+  ethics: prospective competent ethics approval required before human data collection
+freeze:
+  frozen:
+  - factors
+  - 0-12s window
+  - primary variables
+  - H1-H6
+  - kill criteria
+  - M0/M1
+  - holdout logic
+  - claim ceiling
+  - cross-context principle
+  pilot_adjustable:
+  - hardware intensity ceiling
+  - joystick training duration
+  - signal-quality threshold
+  - SESOI from measurement noise
+  - minor ergonomics preserving design
