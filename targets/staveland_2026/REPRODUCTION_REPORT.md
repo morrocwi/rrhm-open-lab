@@ -1,4 +1,20 @@
-# R0 — independent reproduction of the published analyses. Status: ⏳ NOT YET RUN
+# R0 — independent reproduction of the published analyses. Status: ⏳ IN PROGRESS
+
+## R0 progress log (2026-09-02)
+- Archive topology mapped WITHOUT downloading (HTTP range against the zip64 central
+  directory, 77.0 GB, ~54 members): the deposit contains ONLY per-subject epoched iEEG
+  .fif files (BJH016...SLCH018, LL10...LL19; 0.4–2.0 GB each). No separate behavioral or
+  electrode-localization members are present, despite the record description mentioning
+  behavioral data — working hypothesis: behavior travels as per-epoch metadata inside the
+  MNE .fif epochs (being verified on the smallest subject, LL19). If false, the
+  behavioral source is a question FOR the authors, recorded here first.
+- Authors' code located and pinned: github.com/bstavel/Staveland_et_al_Pacman_Statistics_and_Behavior
+  (R/brms; archived as Zenodo 17727552 'publication-release') and
+  github.com/bstavel/Staveland_et_al_Pacman_Neural_Analyses (python; Zenodo 17727554).
+  NEITHER repo carries a license -> we run their code by reference, copy nothing.
+- Behavioral pilot/clinical CSVs referenced by the stats repo live OUTSIDE the public
+  repos (../behavioral_parsing/, munge/) — the iEEG-cohort behavior is the open question
+  above.
 
 Nothing in this file may be cited until the runs exist. Planned scope (in order):
 1. Behavioral: turnaround/reward behavior from the released behavioral files.
