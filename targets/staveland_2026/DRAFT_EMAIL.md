@@ -1,4 +1,59 @@
-# DRAFT — do not send before R0 completes (protocol step 6 gate)
+# DRAFT — GATED. Do not send until all four items exist (protocol step 6 + author ruling 2026-09-02):
+# [ ] 1. Reproduction table (Original vs Reproduced, with code+commit)
+# [ ] 2. Frozen reanalysis (R1-v2, commit bf19562) — DONE, standing
+# [ ] 3. ONE held-out result (positive or negative), archived and reproducible
+# [ ] 4. One-page next experiment — DONE (NEXT_EXPERIMENT.md)
+#
+# The letter below is the POST-RESULT shape (both variants). The earlier theory-first
+# draft is retired: it asked the team to read more than it gave them.
+
+## Variant A — if R1v2.a PASSES
+Subject: One preregistered variable adds out-of-sample information in your Pac-Man data
+
+Dear Dr. Staveland,
+
+We first independently reproduced the relevant published analyses from your public Zenodo
+data and code (reproduction table and commits in the link below). We then froze, before
+computing any outcome, a task-geometry variable — the time remaining before capture minus
+the time needed to reach the exit — together with its failure criteria, and tested it with
+leave-one-subject-out validation. It adds out-of-sample information about turnaround
+timing beyond ghost distance, speeds, trial type, reward, and your threat CDF.
+
+We would value your view on one question: does this reflect remaining effective
+recoverability, or a simpler task feature we have missed? Everything (reproduction,
+frozen prediction, held-out result, and a one-page task modification that would separate
+the two readings prospectively) is in this single folder:
+https://github.com/morrocwi/rrhm-open-lab/tree/main/targets/staveland_2026
+
+We explicitly do not map theta or MFG activity onto any model construct, and we state up
+front that your current task cannot adjudicate our model's central claim — the proposed
+modification exists for that reason. If we have misunderstood the task geometry, we would
+especially appreciate the correction.
+
+## Variant B — if R1v2.a FAILS
+Subject: A preregistered negative result from a reanalysis of your Pac-Man data
+
+Dear Dr. Staveland,
+
+We independently reproduced the relevant published analyses from your public data and
+code, then preregistered and ran a reanalysis testing whether a kinematic
+escape-recoverability margin adds out-of-sample information beyond your existing threat
+variables. It does not. We record this as a failure of our model's prediction on your
+dataset — the frozen criteria and the negative result are archived unedited.
+
+The failure clarified an identifiability issue we think is interesting in itself: in the
+current task, remaining actionability and threat proximity are nearly collinear. The
+one-page task modification in the link separates them prospectively. If that distinction
+seems redundant to you given your interpretation, that judgment is exactly what we are
+asking for.
+https://github.com/morrocwi/rrhm-open-lab/tree/main/targets/staveland_2026
+
+Best regards,
+Yaoharee Lahtee
+Open Civil Science Initiative, Bangkok, Thailand
+
+---
+# RETIRED first draft (kept for provenance):
 
 Subject: A preregistered follow-up prediction from your 2026 Pac-Man approach–avoidance study
 
