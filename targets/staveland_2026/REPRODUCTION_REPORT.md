@@ -37,7 +37,7 @@ for R1, while R0 proceeds on Source Data.
   (409 MB member) was truncated mid-stream at 142/367 MB by an HTTP error; MNE opened the
   truncated file (240 epochs, 52 ch, 512 Hz) and reported metadata=None — RECORDED AS
   INVALID: a conclusion from a truncated file is not a reading (0 ≠ ⊥). (2) A retrying
-  re-download was stopped externally before completion. RESOLVED 2026-09-02 19:0x: the COMPLETE
+  re-download was stopped externally before completion. RESOLVED 2026-09-02: the COMPLETE
   LL19 file (369 MB verified download with retry) contains 240 epochs, 51 bipolar sEEG
   channels + 1 STI trigger channel, sfreq 512, tmin/tmax −4/+12 s, metadata = None,
   single event code — NO game-state channels, NO behavioral metadata. Combined with the
@@ -57,10 +57,10 @@ for R1, while R0 proceeds on Source Data.
   repos (../behavioral_parsing/, munge/) — the iEEG-cohort behavior is the open question
   above.
 
-Nothing in this file may be cited until the runs exist. Planned scope (in order):
-1. Behavioral: turnaround/reward behavior from the released behavioral files.
-2. Theta synchrony ↔ approach duration (published pipeline, published parameters).
-3. Chase vs Strike right-MFG HFA dynamics.
+Remaining scope and status:
+1. Behavioral turnaround/reward model — **DONE (R0-1 above)**.
+2. Theta synchrony ↔ approach duration — pending (the Source Data file carries the needed model sheets).
+3. Chase vs Strike right-MFG HFA dynamics — pending (same source).
 
 Technical plan (recorded before execution): the Zenodo archive is a single 77 GB zip;
 full download is infeasible in the authoring environment. Strategy: HTTP range requests
