@@ -8,8 +8,9 @@ Frozen: split-half (odd/even trials, Spearman-Brown) reliability metric; grid
 f ∈ {1.0,0.5,0.25} × noise m ∈ {0,1,2,4}; 100 reps/cell; base seed 20260902;
 5 restarts per fit; readouts and interpretation rule in the prereg.
 Requires numpy, scipy, pyreadr; run next to rankstab/ extract and the C25 CSVs.
+Self-fetches rankstab/ (Zenodo 7323547) and the two IU-Hamburg CSVs (Zenodo 5648055) if missing.
 """
-import csv, os
+import csv, os, urllib.request, zipfile, io
 import warnings
 warnings.filterwarnings("ignore")
 from collections import defaultdict
@@ -19,6 +20,32 @@ from scipy.optimize import minimize
 from scipy.stats import spearmanr
 
 RD = "rankstab/rankStab_R1/data/"
+
+def _download(url, dest):
+    os.makedirs(os.path.dirname(dest) or ".", exist_ok=True)
+    urllib.request.urlretrieve(url, dest)
+
+def _ensure_data():
+    rat = RD + "dataRat_RankStab.RData"
+    scr = RD + "dataSCR_RankStab.RData"
+    if not (os.path.exists(rat) and os.path.exists(scr)):
+        url = "https://zenodo.org/api/records/7323547/files/rankStab_R1.zip/content"
+        buf = io.BytesIO()
+        with urllib.request.urlopen(url) as r:
+            buf.write(r.read())
+        buf.seek(0)
+        with zipfile.ZipFile(buf) as zf:
+            members = [m for m in zf.namelist()
+                       if m.endswith("rankStab_R1/data/dataRat_RankStab.RData")
+                       or m.endswith("rankStab_R1/data/dataSCR_RankStab.RData")]
+            for m in members:
+                target = "rankstab/" + m[m.index("rankStab_R1/"):]
+                os.makedirs(os.path.dirname(target), exist_ok=True)
+                with zf.open(m) as src, open(target, "wb") as dst:
+                    dst.write(src.read())
+    for fname in ("data_RAT_long_iu_hamburg_reading.csv", "data_SCR_long_iu_hamburg_reading.csv"):
+        if not os.path.exists(fname):
+            _download(f"https://zenodo.org/api/records/5648055/files/{fname}/content", fname)
 
 # ---------- trial-level loaders ----------
 def load_rankstab(val_file, val):
@@ -135,6 +162,7 @@ def make_X(rat, scr):
     return np.array(rows, float)
 
 def run():
+    _ensure_data()
     rat = load_rankstab(("dataRat_RankStab.RData", "dataRat"), "rating")
     scr = load_rankstab(("dataSCR_RankStab.RData", "dataSCR"), "log.rc.ampl")
     h_rat = load_hamburg("data_RAT_long_iu_hamburg_reading.csv", "rat")

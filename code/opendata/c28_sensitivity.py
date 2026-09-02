@@ -11,15 +11,37 @@ S2. Participant bootstrap (10,000 resamples, fixed seed) of
 NOTE: the six-month correlations are test-retest stabilities that include true
 change; they are NOT pure reliability coefficients and must not be used to
 disattenuate the cross-lane correlations.
-Requires numpy, scipy, pyreadr; run next to rankstab/ extract.
+Requires numpy, scipy, pyreadr; auto-downloads rankstab/ extract from Zenodo if missing.
 """
+import os
+import urllib.request
 import warnings
+import zipfile
 warnings.filterwarnings("ignore")
 import numpy as np
 import pyreadr
 from scipy.stats import spearmanr
 
 D = "rankstab/rankStab_R1/data/"
+
+ZENODO_URL = "https://zenodo.org/api/records/7323547/files/rankStab_R1.zip/content"
+ZENODO_ZIP = "rankStab_R1.zip"
+NEEDED_MEMBERS = [
+    "rankStab_R1/data/dataRat_RankStab.RData",
+    "rankStab_R1/data/dataSCR_RankStab.RData",
+]
+
+def _ensure_data():
+    """Download and extract the two required RData files into rankstab/ if missing."""
+    targets = [os.path.join("rankstab", m) for m in NEEDED_MEMBERS]
+    if all(os.path.exists(t) for t in targets):
+        return
+    os.makedirs("rankstab", exist_ok=True)
+    if not os.path.exists(ZENODO_ZIP):
+        urllib.request.urlretrieve(ZENODO_URL, ZENODO_ZIP)
+    with zipfile.ZipFile(ZENODO_ZIP) as zf:
+        for member in NEEDED_MEMBERS:
+            zf.extract(member, "rankstab")
 
 def disc(df, val):
     d = df[(df["phase"].astype(str) == "acq")
@@ -38,6 +60,7 @@ def disc(df, val):
     return out
 
 def run():
+    _ensure_data()
     rat = disc(pyreadr.read_r(D + "dataRat_RankStab.RData")["dataRat"], "rating")
     scr = disc(pyreadr.read_r(D + "dataSCR_RankStab.RData")["dataSCR"], "log.rc.ampl")
     ids = sorted(set(rat["T0"]) & set(rat["T1"]) & set(scr["T0"]) & set(scr["T1"]))

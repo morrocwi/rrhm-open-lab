@@ -8,15 +8,35 @@ C28.1: mean within-lane T0<->T1 Spearman > mean between-lane same-timepoint Spea
        (PASS if diff >= +0.01).
 C28.2: RAT~SCR Pearson at EACH timepoint: |r| <= 0.70 AND both discordant quadrants >= 15%.
 C28.3: rho_RAT(T0,T1) - rho_SCR(T0,T1) >= +0.10.
-Compatibility != validation. Requires numpy, scipy, pyreadr; run next to rankstab/ extract.
+Compatibility != validation. Requires numpy, scipy, pyreadr; run next to rankstab/ extract
+(auto-downloaded from Zenodo record 7323547 on first run if missing).
 """
+import os
+import urllib.request
 import warnings
+import zipfile
+
 warnings.filterwarnings("ignore")
 import numpy as np
 import pyreadr
 from scipy.stats import spearmanr, pearsonr
 
 D = "rankstab/rankStab_R1/data/"
+
+ZENODO_URL = "https://zenodo.org/api/records/7323547/files/rankStab_R1.zip/content"
+_NEEDED = ("dataRat_RankStab.RData", "dataSCR_RankStab.RData")
+
+def ensure_data():
+    """Download + extract the two RData files into rankstab/rankStab_R1/data/ if missing."""
+    if all(os.path.exists(D + f) for f in _NEEDED):
+        return
+    zip_path = "rankStab_R1.zip"
+    if not os.path.exists(zip_path):
+        urllib.request.urlretrieve(ZENODO_URL, zip_path)
+    members = [f"rankStab_R1/data/{f}" for f in _NEEDED]
+    with zipfile.ZipFile(zip_path) as zf:
+        for m in members:
+            zf.extract(m, "rankstab")
 
 def disc(df, val):
     """(id, timepoint) -> D over acq trials."""
@@ -40,6 +60,7 @@ def sp(d1, d2):
     return spearmanr([d1[i] for i in c], [d2[i] for i in c])[0], len(c)
 
 def run():
+    ensure_data()
     rat = disc(pyreadr.read_r(D + "dataRat_RankStab.RData")["dataRat"], "rating")
     scr = disc(pyreadr.read_r(D + "dataSCR_RankStab.RData")["dataSCR"], "log.rc.ampl")
 

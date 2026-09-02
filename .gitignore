@@ -1,3 +1,14 @@
 data_*_iu_hamburg_reading.csv
 *.zip
 giles.xlsx
+__pycache__/
+*.pyc
+*.vo
+*.vok
+*.vos
+*.glob
+.*.aux
+fig1_adm_horizon.pdf
+fig2_rank.pdf
+.lia.cache
+.nra.cache

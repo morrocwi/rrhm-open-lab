@@ -6,15 +6,31 @@ QUANTIFICATION-ONLY (contaminated by C28's revealed correlations, no confirmator
 C29.2 extinction = SEMI-BLIND (discrimination never previously computed here).
 M0: X_i = lambda_i * F + eps_i (k=8). M1: lane factors F_RAT, F_SCR, corr phi (k=9).
 Wishart ML on the sample covariance; BIC decision rule frozen in the prereg.
-Requires numpy, scipy, pyreadr; run next to rankstab/ extract.
+Requires numpy, scipy, pyreadr; run next to rankstab/ extract (self-fetches from Zenodo if missing).
 """
 import warnings
 warnings.filterwarnings("ignore")
+import os
+import urllib.request
+import zipfile
 import numpy as np
 import pyreadr
 from scipy.optimize import minimize
 
 D = "rankstab/rankStab_R1/data/"
+ZENODO_URL = "https://zenodo.org/api/records/7323547/files/rankStab_R1.zip/content"
+NEEDED = ("rankStab_R1/data/dataRat_RankStab.RData", "rankStab_R1/data/dataSCR_RankStab.RData")
+
+def ensure_data():
+    """Self-download+extract rankStab_R1 RData files from Zenodo if missing (fetch/infra only)."""
+    if all(os.path.exists(os.path.join("rankstab", n)) for n in NEEDED):
+        return
+    os.makedirs("rankstab", exist_ok=True)
+    zip_path = "rankStab_R1.zip"
+    urllib.request.urlretrieve(ZENODO_URL, zip_path)
+    with zipfile.ZipFile(zip_path) as zf:
+        for member in NEEDED:
+            zf.extract(member, "rankstab")
 PHASES = {"C29.1 (acq, QUANTIFICATION-ONLY/contaminated)": "acq",
           "C29.2 (ext, SEMI-BLIND)": "ext"}
 
@@ -101,6 +117,7 @@ def boot_m0(S, n, p0, seed, sims=500):
           f"95th pct={np.percentile(ds, 95):+.2f}, P(dBIC>=10)={np.mean(ds >= 10):.3f}")
 
 def run():
+    ensure_data()
     rat_df = pyreadr.read_r(D + "dataRat_RankStab.RData")["dataRat"]
     scr_df = pyreadr.read_r(D + "dataSCR_RankStab.RData")["dataSCR"]
     for label, phase in PHASES.items():

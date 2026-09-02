@@ -9,7 +9,9 @@ C27.1a tonic freezing unpredictable > predictable; C27.1b gradient steeper under
 predictable; C27.2 lane dissociation of the per-subject U-effect (cardiac vs SCL).
 Compatibility != validation. Requires: numpy, scipy, pyreadr; run next to the
 extracted FreezingActionPrep_RevII/data/ directory.
+Self-fetches FreezingActionPrep_RevII/data/ (Zenodo 18713991, 302 MB) if missing.
 """
+import os, urllib.request, zipfile
 import warnings
 warnings.filterwarnings("ignore")
 import numpy as np
@@ -17,6 +19,26 @@ import pyreadr
 from scipy.stats import pearsonr, binomtest
 
 D = "FreezingActionPrep_RevII/data/"
+
+def _ensure_data():
+    needed = [D + f for f in ("df_ibi.Rdata", "df_anticip.Rdata", "df.filtered.Rdata")]
+    if all(os.path.exists(f) for f in needed):
+        return
+    url = ("https://zenodo.org/api/records/18713991/files/"
+           "FreezingActionPrep_RevII.zip/content")
+    zpath = "FreezingActionPrep_RevII.zip"
+    if not os.path.exists(zpath):
+        urllib.request.urlretrieve(url, zpath)  # stream to disk, not RAM (302 MB)
+    with zipfile.ZipFile(zpath) as zf:
+        members = [m for m in zf.namelist()
+                   if m.endswith("FreezingActionPrep_RevII/data/df_ibi.Rdata")
+                   or m.endswith("FreezingActionPrep_RevII/data/df_anticip.Rdata")
+                   or m.endswith("FreezingActionPrep_RevII/data/df.filtered.Rdata")]
+        for m in members:
+            target = m[m.index("FreezingActionPrep_RevII/"):]
+            os.makedirs(os.path.dirname(target), exist_ok=True)
+            with zf.open(m) as src, open(target, "wb") as dst:
+                dst.write(src.read())
 PRED, UNPRED = "black.PNG", "blue.PNG"
 BINS = list(range(1, 9))
 
@@ -55,6 +77,7 @@ def report_direction(name, per_sub, better):
     return gm_u, gm_p, k / n > 0.5, rev
 
 def run():
+    _ensure_data()
     # cardiac: log.ibi baseline-corrected by trial bin-0 mean
     ibi = pyreadr.read_r(D + "df_ibi.Rdata")["df_ibi"]
     ibi = ibi.dropna(subset=["log.ibi", "timebins1s", "blink"])

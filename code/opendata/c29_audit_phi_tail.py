@@ -10,15 +10,32 @@ A2. Bootstrap exceedance count vs the OBSERVED statistic (same seed/sims as C29)
     conservative tail p_boot = (count(sim dBIC >= observed) + 1) / (sims + 1),
     named a parametric-bootstrap tail probability under fitted M0 — NOT a p-value
     proving M1.
+Self-fetches rankStab_R1 RData files from Zenodo into rankstab/ if missing.
 """
 import warnings
 warnings.filterwarnings("ignore")
+import os
+import urllib.request
+import zipfile
 import numpy as np
 import pyreadr
 from scipy.optimize import minimize
 
 D = "rankstab/rankStab_R1/data/"
 OBS = {"acq": 2.50, "ext": 7.83}
+ZENODO_URL = "https://zenodo.org/api/records/7323547/files/rankStab_R1.zip/content"
+NEEDED = ("rankStab_R1/data/dataRat_RankStab.RData", "rankStab_R1/data/dataSCR_RankStab.RData")
+
+def ensure_data():
+    """Self-download+extract rankStab_R1 RData files from Zenodo if missing (fetch/infra only)."""
+    if all(os.path.exists(os.path.join("rankstab", n)) for n in NEEDED):
+        return
+    os.makedirs("rankstab", exist_ok=True)
+    zip_path = "rankStab_R1.zip"
+    urllib.request.urlretrieve(ZENODO_URL, zip_path)
+    with zipfile.ZipFile(zip_path) as zf:
+        for member in NEEDED:
+            zf.extract(member, "rankstab")
 
 def disc(df, val, phase):
     d = df[(df["phase"].astype(str) == phase)
@@ -75,6 +92,7 @@ def canonical(p1):
     return lam, phi
 
 def run():
+    ensure_data()
     rat_df = pyreadr.read_r(D + "dataRat_RankStab.RData")["dataRat"]
     scr_df = pyreadr.read_r(D + "dataSCR_RankStab.RData")["dataSCR"]
     for phase in ("acq", "ext"):
