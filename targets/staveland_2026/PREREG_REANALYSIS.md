@@ -44,3 +44,30 @@ lessons.)
 ## Order gate
 R1 computation may not begin before R0 (steps 1–2 minimum) succeeds; contact with the
 authors happens after R0, with R1 frozen — per the target protocol in ../README.md.
+
+## PREREG-MAPPING (appended 2026-09-02 from AUTHORS' CODE inspection only — no outcome data opened)
+Sources read: bstavel/Staveland_et_al_Pacman_Neural_Analyses raw_data/*/scripts/states2csv_*.ipynb
+and bstavel/Staveland_et_al_Pacman_Statistics_and_Behavior R/create_distance_df.R (both pinned
+via Zenodo 17727554/17727552).
+- Behavioral stream: BCI2000 game states sampled to 50 ms flips (20 Hz): Trial_on_off,
+  GhostLocation, UserLocation, Direction, Biscuit1–5, Attack, Chase, Eaten, Score, Lives,
+  TrialType → per-subject `*_raw_behave.csv` (produced upstream of the public deposit).
+- Task geometry is ONE-DIMENSIONAL: distance_to_ghost = |GhostLocation − UserLocation|
+  (authors' own definition) — our 1-D t_catch/t_exit implementation in
+  code/02_recoverability_margin.py maps directly.
+- OUTCOME for R1.a = the authors' `last_away` in its trial_time version (the final
+  towards→away direction flip per trial) — their turnaround operationalization, adopted
+  verbatim, not ours.
+- COVARIATE OPERATIONALIZATION (frozen): ghost distance = distance_to_ghost;
+  threat probability = their cdf_distance (CDF of distance/100 under their declared
+  threat_function) or TrialType where that is the paper's usage; reward = Biscuit/reward
+  state per TrialType; time = trial_time. Velocities for M^D = first differences of
+  GhostLocation/UserLocation over 50 ms flips.
+- M^D per flip: T_catch from closing speed on the 1-D track; T_exit from UserLocation's
+  distance to the trial exit at current user speed; exit position to be read from task
+  code/constants (structure inspection), never fitted.
+- DATA-ACCESS STATUS at this mapping commit: the per-subject behavioral CSVs are NOT in
+  the public deposit (verified by central-directory enumeration); whether the epoched
+  .fif files carry the game-state channels is under verification. If behavior proves
+  unavailable publicly, R1 waits for the authors' pointer — it does NOT proceed on
+  reconstructed data.
