@@ -1,4 +1,31 @@
-# R0 — independent reproduction of the published analyses. Status: ⏳ IN PROGRESS
+# R0 — independent reproduction of the published analyses. Status: FIRST RESULT REPRODUCED ✅ (R0-1); remainder in progress
+
+## R0-1 — Figure 1 turnaround~reward model: REPRODUCED WITHIN TOLERANCE (2026-09-02)
+Data source: the publisher's Source Data file (41467_2026_70287_MOESM4_ESM.xlsx, Springer
+static content) — located AFTER establishing that the Zenodo deposit carries no behavioral
+files; the Source Data sheets contain trial-level per-figure data AND the original brms
+model summaries, making the comparison self-contained.
+
+| quantity | Original (brms, their sheet, verbatim) | Reproduced (statsmodels MixedLM) |
+|---|---|---|
+| large_rewardSmall | 0.1115 [0.0905, 0.1326] | **0.1114 [0.0899, 0.1329]** |
+| Intercept | −0.0509 | **−0.0509** |
+| sd(Intercept) | 0.3841 | 0.3801 |
+| subjects | 211 | 211 |
+| N obs | 34,298 | 34,609 |
+
+Declared deviations: engine ML vs Bayesian (expected near-agreement for Gaussian model —
+observed); our extracted sheet holds 34,609 rows vs their stated 34,298 observations
+(difference 311, unexplained by us; recorded). Script: code/03_reproduce_fig1_turnaround_reward.py
+(self-fetches the Source Data file). Cohort columns confirm the file contains BOTH the
+online samples (30,343 rows) and the iEEG cohort (4,266 rows).
+
+## Behavioral-data location — FINAL RESOLUTION
+The per-figure Source Data file substantially replaces the missing deposit behavior for
+REPRODUCTION purposes (trial-level last_away etc.). LIMIT: it does NOT contain the 20 Hz
+game-state streams (positions/velocities), so the M^D reanalysis (R1-v2) still requires
+the raw behavioral files — the data inquiry to the authors remains the unblocking step
+for R1, while R0 proceeds on Source Data.
 
 ## R0 progress log (2026-09-02)
 - Archive topology mapped WITHOUT downloading (HTTP range against the zip64 central
