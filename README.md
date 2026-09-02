@@ -135,6 +135,14 @@ Code: MIT. Documents and preregistrations: CC BY 4.0.
 The manuscript states its own license (CC BY 4.0) and correspondence address.
 
 ## Provenance
+**First-person provenance disclosure.** The single-case observations that motivated parts
+of this program (dental clamp, venipuncture, sustained social attention) are the author's
+own experiences, disclosed deliberately. This is stated as method, not confession: the
+program exists because the author wants to understand a personal experience in honest
+conversation with the world's knowledge. First-person material carries zero evidential
+weight here — that is what the preregistrations, kill criteria, and adversarial reviews
+are for.
+
 Built by the ANSE.ASIA research pipeline (human founder + AI sessions) with the
 discipline recorded in the manuscript: tiered claims, full-text-or-NO-DATA holdings,
 maker–checker review before public release. This repository was assembled after an

@@ -1,11 +1,11 @@
 # The Sustained Social Attention / Interactional-Lock Stress Test
-**Companion document to *Why We Phobia?* (RRHM). Status: Dr-tier hypothesis + frozen experimental design (prereg case C32, repo commit `eabcad8`, frozen BEFORE the rival literature was searched). v21 rev4 of the manuscript is FROZEN; this material is queued for v22 (gate: C31.2 boundary adjudication). Single-case provenance; CARE-consent precondition applies to any publication use.**
+**Companion document to *Why We Phobia?* (RRHM). Status: Dr-tier hypothesis + frozen experimental design (prereg case C32, repo commit `eabcad8`, frozen BEFORE the rival literature was searched). v21 rev4 of the manuscript is FROZEN; this material is queued for v22 (gate: C31.2 boundary adjudication). Single-case provenance — **the case is the author's own first-person experience, disclosed by deliberate choice** (provenance corrected 2026-09-02 at the author's direction; no third party involved).**
 
 ---
 
 ## 1. The observation (hypothesis generator only — never support)
 
-Same individual as the dental-clamp and venipuncture material: in the past, being **stared at for a sustained period, or intently listened to**, could escalate to panic — even when the other person was attentive, not hostile. The symptom later declined on its own to mild nervousness, with no specific intervention.
+The author himself (first-person account; same individual as the dental-clamp and venipuncture material): in the past, being **stared at for a sustained period, or intently listened to**, could escalate to panic — even when the other person was attentive, not hostile. The symptom later declined on its own to mild nervousness, with no specific intervention.
 
 Immediate-safety layer: no current emergency signal from this history (no syncope, chest pain, neurological deficit reported). Any real episode with loss of consciousness, chest pain, dyspnea, or arrhythmia is a medical-differential problem first. And this pattern must NOT be reflexively classed as specific phobia: fear of scrutiny sits closest to **social anxiety disorder (SAD)**, and panic attacks co-occurring with SAD do not imply panic disorder.
 

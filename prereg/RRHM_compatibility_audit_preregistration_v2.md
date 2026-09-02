@@ -519,3 +519,14 @@ Four-cell readouts (frozen thresholds from C31.2): split-half SB reliability per
 occasion (odd/even by trial); persistence = within-lane T0↔T1 Spearman; model verdict =
 C29 4-variable M0-vs-M1 frozen BIC bands. Prior guess: cell (reliability adequate for SCR,
 persistence present, M1-preferred) p=0.6.
+
+### PROVENANCE CORRECTION (2026-09-02, author's direction; frozen texts above NOT edited)
+The single-case material behind the dental/venipuncture observations and case C32 is the
+AUTHOR'S OWN first-person experience, disclosed publicly by the author's deliberate choice.
+The earlier third-person framing ("a single adult known to the author") is corrected
+wherever the document is not frozen; frozen sections keep their original wording with this
+note as the binding correction. Methodological statement, recorded verbatim in spirit:
+this research program is motivated by a personal experience the author wants to understand,
+in honest conversation with the world's knowledge — the first-person origin is a declared
+feature, fenced by preregistration, kill criteria, and adversarial review, never a source
+of evidential weight.
