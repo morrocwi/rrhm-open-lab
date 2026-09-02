@@ -16,7 +16,7 @@ anyone using only public data — could compute it:
 
 We cannot test it: the 20 Hz position streams needed to compute it are not in the
 public deposit. You can, in an afternoon. The lock (commits 98895aa/bf19562/66ca4eb, sealed by the tagged release
-staveland-lock-v1), a fully pinned specification an implementer can run without
+staveland-lock-v2), a fully pinned specification an implementer can run without
 asking us anything, and the criteria under which we lose are all here:
 
 https://github.com/morrocwi/rrhm-open-lab/tree/main/targets/staveland_2026
