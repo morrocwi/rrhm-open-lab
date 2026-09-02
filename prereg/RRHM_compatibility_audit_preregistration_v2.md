@@ -344,3 +344,31 @@ Files: dataRat_RankStab.RData (col `rating`), dataSCR_RankStab.RData (col `log.r
 the authors' log-transformed range-corrected SCR — chosen as their canonical transform).
 cs: CS_P/CS_M (US rows excluded); phase == 'acq'; timepoint T0/T1; all days pooled.
 D = mean(CS_P) − mean(CS_M) per subject × lane × timepoint over all acq trials.
+
+### C29 — formal model comparison: one-scalar latent (M0) vs two-lane (M1) on rankStab [FROZEN 2026-09-02, before any C29 computation]
+CONTAMINATION DECLARED: C28 already revealed the acquisition-phase discrimination correlation
+structure of this dataset. Therefore C29.1 (acquisition) is labeled QUANTIFICATION-ONLY —
+contaminated by prior knowledge, carrying no confirmatory weight regardless of outcome.
+C29.2 (extinction phase) is SEMI-BLIND: extinction discrimination scores have never been
+computed in this workspace; only the phase's existence was known from the codebook.
+Data & variables (frozen): complete-case subjects with all four cells; observed vector
+X = (RAT_T0, SCR_T0, RAT_T1, SCR_T1) of CS_P−CS_M discrimination means over the phase's
+trials (acquisition for C29.1; extinction for C29.2); variables z-standardized; Pearson
+covariance; lanes as in C28-MAPPING (rating; log.rc.ampl).
+Models (frozen):
+- M0 one common trait factor: X_i = λ_i F + ε_i (λ free ×4, residual variances ×4; Var F = 1).
+  k = 8. Predicts a rank-1 loading structure for all six off-diagonal correlations.
+- M1 two lane factors: RAT_T0/RAT_T1 load on F_RAT; SCR_T0/SCR_T1 on F_SCR; Var = 1 each,
+  inter-factor correlation φ free. k = 9.
+Estimation (frozen): maximum likelihood for multivariate normal fitted to the sample
+covariance (Wishart log-likelihood), scipy L-BFGS-B, residual variances bounded ≥ 0.001,
+loadings in [−5, 5], φ in [−0.99, 0.99]; 20 random restarts, fixed seed.
+Decision rule (frozen): BIC = −2·maxLL + k·ln(n). ΔBIC = BIC(M0) − BIC(M1).
+ΔBIC ≥ 10 → strong preference for M1; 2–10 → weak; −2..2 → indeterminate; ≤ −2 → M0 preferred
+(scored AGAINST the two-lane architecture, including in the contaminated C29.1).
+Also reported: AIC, and a parametric bootstrap (500 sims, fixed seed) of ΔBIC under fitted M0
+to check the comparison's behavior when M0 is true (calibration readout, not a criterion).
+Prior guesses (recorded): C29.1 ΔBIC ≥ 10 p=0.85 (contaminated — near-certain by construction,
+said plainly). C29.2 M1 preferred (ΔBIC ≥ 2) p=0.7; ΔBIC ≥ 10 p=0.5.
+Falsifier: C29.2 ΔBIC ≤ −2 (M0 wins on the semi-blind phase) is a real hit against typed lanes
+and will be recorded as FAIL with consequence.
