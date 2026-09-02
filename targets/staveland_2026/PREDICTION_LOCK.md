@@ -4,7 +4,8 @@
 [`PREREG_REANALYSIS.md`](PREREG_REANALYSIS.md)** — freeze commits 98895aa (original) ·
 663aadf (mapping) · bf19562 (R1-v2, held-out criteria, prior 0.45) · 66ca4eb (R1-v3,
 fully pinned canonical spec) and the cohort pin — sealed by the tagged release
-`staveland-lock-v3` (final; v1/v2 are earlier seals superseded by it).
+`staveland-lock-v4` and archived immutably at **DOI [10.5281/zenodo.22255211](https://doi.org/10.5281/zenodo.22255211)**
+(concept DOI 10.5281/zenodo.22255210; v1–v3 are earlier seals superseded by v4).
 
 ## Historical note
 An earlier same-day lock of this prediction exists in a separate working session; it has

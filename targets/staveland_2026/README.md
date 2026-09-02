@@ -1,5 +1,7 @@
 # Staveland 2026 × RRHM: Reproduction, preregistered reanalysis, and one prospective dissociation
 
+**Archived:** this package is sealed at DOI [10.5281/zenodo.22255211](https://doi.org/10.5281/zenodo.22255211) (release `staveland-lock-v4`).
+
 **Target:** Staveland B. et al., *Cortical-limbic circuit dynamics of approach-avoidance
 conflict in humans.* Nat Commun 2026, doi:10.1038/s41467-026-70287-5 · data: Zenodo
 17726565 · code: Zenodo 17727552 / 17727554.
