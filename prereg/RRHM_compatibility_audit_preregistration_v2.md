@@ -372,3 +372,36 @@ Prior guesses (recorded): C29.1 ΔBIC ≥ 10 p=0.85 (contaminated — near-certa
 said plainly). C29.2 M1 preferred (ΔBIC ≥ 2) p=0.7; ΔBIC ≥ 10 p=0.5.
 Falsifier: C29.2 ΔBIC ≤ −2 (M0 wins on the semi-blind phase) is a real hit against typed lanes
 and will be recorded as FAIL with consequence.
+
+### C30 — external transport of the model comparison to IU-Hamburg (Zenodo 5648055) [FROZEN 2026-09-02, before any C30 computation]
+Purpose (author directive): give M0 a chance to WIN on an external dataset with the mapping
+fixed in advance; a loss for M1 here is a real, unfixable boundary result.
+CONTAMINATION DECLARED, cell by cell: C25 previously revealed, at group level (Spearman),
+the within-lane cross-phase cells (RAT +0.503, SCR −0.171, FPS +0.048) and the between-lane
+same-phase cells (six values, +0.02 to +0.15). NOT previously computed: between-lane
+CROSS-phase cells (e.g., RAT_ACQ~SCR_EX), all Pearson covariances, and any model fit.
+C30-A is therefore PARTIALLY CONTAMINATED (declared), but the model-level comparison itself
+has never been run on this dataset and the frozen falsifier is live.
+C30-A (PRIMARY — architecture replication, three lanes):
+Variables X = (RAT_ACQ, SCR_ACQ, FPS_ACQ, RAT_EX, SCR_EX, FPS_EX): per-subject CS+/−
+discrimination per lane per phase exactly as computed in C25 (all trials of the phase);
+complete cases across all six cells; z-standardized; Pearson covariance; Wishart ML;
+20 restarts, fixed seed; residual variances ≥ 0.001.
+- M0 one common factor: 6 loadings + 6 residuals, k = 12.
+- M1 three lane factors (RAT, SCR, FPS; occasions load on their lane factor), inter-factor
+  correlations free ×3, k = 15. Reference-loading orientation rule (from C29 audit): each
+  factor's ACQ loading canonicalized positive before any φ is reported.
+Decision rule: ΔBIC = BIC(M0) − BIC(M1); frozen bands identical to C29 (≥10 strong / 2–10
+weak / −2..2 indeterminate / ≤−2 M0 wins externally).
+FALSIFIER (binding, no post-hoc repair): ΔBIC ≤ −2 ⇒ M0 wins externally; recorded as FAIL
+with the consequence "typed-lane structure does not transport universally; the theory takes
+a claim boundary here" — factor allocation may NOT be edited after seeing the result.
+Prior guesses (recorded): ΔBIC ≥ 2 (M1 preferred) p=0.6; ΔBIC ≥ 10 p=0.3; ΔBIC ≤ −2 p=0.2.
+(Priors deliberately more cautious after the C29 forecast failure.)
+C30-B (parameter transport rankStab → IU-Hamburg): assessed for identifiability BEFORE any
+fit, on declared grounds: the two datasets differ in rating instrument (VAS 0–25 raw vs other
+scale), SCR transform (log range-corrected vs z-scored), lane count, and — decisively — in
+occasion semantics (six-month retest vs within-visit phase transition ACQ→EX). Structural
+parameters fitted to cross-time stability have no licensed correspondence to cross-phase
+stability. RULING (frozen): C30-B is NOT IDENTIFIABLE as parameter transport; declared ⊥,
+not attempted, per the standing rule that ⊥ is never converted to a result. C30-A is primary.
