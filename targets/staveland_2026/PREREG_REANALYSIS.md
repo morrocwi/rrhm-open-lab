@@ -102,3 +102,73 @@ includes speeds, which absorb part of M^D by construction); R1v2.b PASS p=0.30.
 Email gate (binding, per protocol step 6): no contact before (1) reproduction table
 Original-vs-Reproduced exists, (2) this freeze stands, (3) ONE held-out result (positive
 or negative) is archived, (4) the one-page next experiment is final.
+
+## R1-v3 CANONICAL SPECIFICATION (2026-09-02, appended BEFORE any outcome computation; supersedes R1-v2's feature/fit details; R1-v2's spirit — held-out, incremental, reparameterization-as-named-outcome — unchanged)
+Trigger: an internal adversarial audit (simulating the data-holding postdoc) found ~8
+unpinned implementation forks. Every fork is pinned here so the prediction is
+operationally frozen: an implementer needs ZERO choices and ZERO emails. Where prose and
+example code disagree, THIS SECTION is authoritative.
+
+### Model class (pins the timepoint/aggregation family of ambiguities at the root)
+Discrete-time hazard model at the flip level (50 ms person-period format) — no per-trial
+aggregation windows exist, so no window can reference the outcome:
+  turn(t) ~ baseline(t) [+ M^D features(t)] + (1 | subject),  binomial GLMM (logit)
+where turn(t) = 1 at the flip of the trial's LAST towards→away direction flip (the
+authors' last_away moment), 0 at every earlier included flip; flips after last_away are
+not in the risk set. Trials with no towards→away flip contribute all their included flips
+as 0s (right-censored at trial end).
+
+### Data pins
+- Flip inclusion: Trial_on_off == 1; ghost-present trials with TrialType <= 16 (authors'
+  own cleaning rule); the authors' jump/flip-artifact exclusions adopted verbatim from
+  R/clean_behavioral_data.R; risk set = flips from trial start to last_away inclusive.
+- Velocities: backward first difference over exactly 1 flip (x_t − x_{t−1}), no smoothing;
+  first flip of each trial has velocity 0 by convention.
+- Units: raw game-state position units and 50 ms flips throughout (consistency, not the
+  absolute scale, is what matters; M^D is in flips).
+
+### M^D pins
+- Exit position: the trial's entry point = the first included UserLocation sample of that
+  trial. exit_dist(t) = |UserLocation_t − entry point|.
+- T_exit(t) = exit_dist(t) / v_flee, where v_flee = the subject-level median of nonzero
+  |ΔUserLocation| per flip across all included flips (a capability constant per subject:
+  "how fast can this player move when moving") — NOT current velocity, because T_exit is
+  the time a flee-now decision would need, not an extrapolation of current motion.
+- T_catch(t): gap(t) = |GhostLocation_t − UserLocation_t|; closing(t) = −Δgap over 1 flip
+  (positive = ghost gaining). T_catch = gap/closing if closing > 0, else +CAP.
+- M^D(t) = T_catch(t) − T_exit(t), then clipped to [−CAP, +CAP] with CAP = 200 flips
+  (10 s). No NaN can arise under these pins.
+- Frozen M^D feature set (exactly two, both flip-level): clipped M^D(t), and the binary
+  indicator [M^D(t) < 0].
+(The R1.a-era "time-below-zero" option is hereby recorded as dropped; "instantaneous vs
+min" from R1-v2 is dissolved by the flip-level model.)
+
+### Baseline pins (every covariate a named flip-level column)
+distance_to_ghost(t); signed user velocity toward ghost; signed ghost velocity toward
+user; TrialType (factor) AND large-reward indicator; the authors' cdf_distance(t)
+recomputed by their published formula; flip index t within trial; Chase(t) and Attack(t)
+as binary covariates in BOTH baseline and test models.
+
+### Fit & scoring pins
+- Engine: lme4::glmer (binomial, logit), ML. Declared fallback if R is unavailable to an
+  implementer: statsmodels BinomialBayesMixedGLM, reported as a deviation.
+- LOSO: refit on N−1 subjects; score the held-out subject with random effect set to 0
+  (population-conditional), score = mean per-flip held-out log predictive probability.
+- Per-subject improvement = (mean per-flip lppd of M^D model) − (baseline model).
+- PASS = improvement > 0 in a strict majority of subjects (tie or exactly half = FAIL)
+  AND mean improvement > 0 with percentile bootstrap 95% CI over subjects (10,000
+  resamples, seed 20260902) excluding zero. FAIL otherwise. Direction check (reported,
+  not gating): the fixed effect of clipped M^D on turn hazard is negative
+  (smaller margin → higher hazard).
+- Prior guess carried over: PASS p = 0.45.
+
+### Email-gate amendment (recorded ruling, 2026-09-02)
+For the no-public-data case (Variant S letter): gate item 3 ("one held-out result")
+transfers BY DESIGN to the data holders — we cannot compute M^D from public materials
+(verified in REPRODUCTION_REPORT.md). Variant S's send-gates are therefore:
+(1) reproduction table ✅, (2) this freeze ✅, (4) next-experiment page ✅. This amendment
+is recorded here, in the frozen file the letter links, so no reader can find the original
+gate without finding this ruling beside it.
+Lock commits for citation: original freeze 98895aa · mapping 663aadf · R1-v2 bf19562 ·
+R1-v3 = the commit introducing this section (hash visible in git history and cited in
+README/letter after commit).
