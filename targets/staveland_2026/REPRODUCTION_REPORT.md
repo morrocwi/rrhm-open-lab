@@ -6,7 +6,13 @@
   .fif files (BJH016...SLCH018, LL10...LL19; 0.4–2.0 GB each). No separate behavioral or
   electrode-localization members are present, despite the record description mentioning
   behavioral data — working hypothesis: behavior travels as per-epoch metadata inside the
-  MNE .fif epochs (being verified on the smallest subject, LL19). If false, the
+  MNE .fif epochs. Verification attempt log: (1) first selective extraction of LL19
+  (409 MB member) was truncated mid-stream at 142/367 MB by an HTTP error; MNE opened the
+  truncated file (240 epochs, 52 ch, 512 Hz) and reported metadata=None — RECORDED AS
+  INVALID: a conclusion from a truncated file is not a reading (0 ≠ ⊥). (2) A retrying
+  re-download was stopped externally before completion. STATUS: behavioral-in-fif question
+  = ⊥ pending ONE completed member download (~370 MB compressed). If metadata proves
+  absent on the complete file, the
   behavioral source is a question FOR the authors, recorded here first.
 - Authors' code located and pinned: github.com/bstavel/Staveland_et_al_Pacman_Statistics_and_Behavior
   (R/brms; archived as Zenodo 17727552 'publication-release') and
