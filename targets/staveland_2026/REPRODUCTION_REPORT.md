@@ -10,9 +10,17 @@
   (409 MB member) was truncated mid-stream at 142/367 MB by an HTTP error; MNE opened the
   truncated file (240 epochs, 52 ch, 512 Hz) and reported metadata=None — RECORDED AS
   INVALID: a conclusion from a truncated file is not a reading (0 ≠ ⊥). (2) A retrying
-  re-download was stopped externally before completion. STATUS: behavioral-in-fif question
-  = ⊥ pending ONE completed member download (~370 MB compressed). If metadata proves
-  absent on the complete file, the
+  re-download was stopped externally before completion. RESOLVED 2026-09-02 19:0x: the COMPLETE
+  LL19 file (369 MB verified download with retry) contains 240 epochs, 51 bipolar sEEG
+  channels + 1 STI trigger channel, sfreq 512, tmin/tmax −4/+12 s, metadata = None,
+  single event code — NO game-state channels, NO behavioral metadata. Combined with the
+  full central-directory enumeration (no behavioral members) and full recursive trees of
+  all three public code repos (no per-subject behavioral CSVs; the paths the analysis
+  code reads live outside the repos), the finding is now DEFINITIVE:
+  **the iEEG-cohort behavioral data required to reproduce the published behavioral and
+  brain–behavior analyses is not publicly available, although the Zenodo record
+  description states behavioral data are included.** R0 (behavioral and brain-behavior
+  arms) is BLOCKED on exactly this; the
   behavioral source is a question FOR the authors, recorded here first.
 - Authors' code located and pinned: github.com/bstavel/Staveland_et_al_Pacman_Statistics_and_Behavior
   (R/brms; archived as Zenodo 17727552 'publication-release') and
