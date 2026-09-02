@@ -317,3 +317,24 @@ sway, COP), df.filtered.Rdata (SCL per second), 02_method.Rmd + 03_2results.Rmd 
 - Exclusions: none beyond missing data (frozen rule); the authors' sickness-exclusion list was
   seen in their code — the PRIMARY run ignores it; a run adopting it may be reported only as
   labeled sensitivity, never substituted.
+
+### C28 — six-month MTMM lane typing (Zenodo 7323547, rankStab, n≈120) [FROZEN 2026-09-02, PENDING-STRUCTURE]
+Holdings at freeze: Zenodo metadata + our own TODO_planned_analyses.md registered intent.
+No data file opened. Data: fear conditioning performed TWICE, six months apart (T0, T1);
+lanes = fear ratings (RAT) and SCR. Discrimination D = mean(CS+) − mean(CS−) per subject,
+per lane, per timepoint, ACQUISITION phase (primary; extinction not used in criteria).
+Column mapping will be appended as C28-MAPPING after opening ONLY structure/codebook
+(never outcome values), as in C27.
+- C28.1 (PRIMARY, longitudinal MTMM): mean within-lane cross-timepoint Spearman of D
+  (RAT T0<->T1 and SCR T0<->T1, averaged) **>** mean between-lane within-timepoint Spearman
+  (RAT~SCR at T0 and at T1, averaged). PASS = difference >= +0.01; reversal or |diff|<0.01 = FAIL.
+  Rationale: M0 scalar predicts same-day between-lane > 6-month within-lane; M1 typed lanes
+  predict persistent lane-specific traits. Diagnostic both directions.
+- C28.2 (dissociation replication): RAT~SCR (Pearson) at EACH timepoint: |r| <= 0.70 AND both
+  median-split discordant quadrants >= 15%, required at BOTH T0 and T1.
+- C28.3 (stability ordering, from registered TODO intent + C25 result as declared prior):
+  rho_RAT(T0,T1) − rho_SCR(T0,T1) >= +0.10. FAIL if SCR is as stable as or more stable than RAT.
+Exclusions: subjects with non-missing D in all cells entering a criterion; none other.
+Prior guesses (recorded): C28.1 PASS p=0.65; C28.2 PASS p=0.7; C28.3 PASS p=0.7.
+Falsifiers: C28.1 reversal = M0 pattern (scored against typed lanes); C28.3 failure kills the
+"rating lane carries the stable individual structure" reading from C25.
