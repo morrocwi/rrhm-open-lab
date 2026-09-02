@@ -1,3 +1,12 @@
+> **SUPERSEDED — READ THIS FIRST (2026-09-02, independent adversarial review).**
+> This file is the ORIGINAL v18-era record, kept verbatim for provenance. Its headline
+> results were re-adjudicated and PARTLY WITHDRAWN: the Source-B timing result ("PASS,
+> striking", peak 3.48 s vs 3.5 s) is **WITHDRAWN as a window-edge argmax artifact**; the
+> "MARGINAL" label and the "3.5 of 4 frozen criteria met" aggregate are **RETRACTED** as
+> post-unblinding inventions; Source A's criteria were adjudicated **unfailable by design**
+> (confirmatory in form only). The binding record is `../prereg/SCORES_2026-09-02.md` and
+> `../REVIEW_2026-09-02.md`. Do not cite anything below without those files.
+
 # S13 — C23 executed: two-source open-data test (2026-09-02)
 
 Plan FROZEN in prereg v2 (C23) before any outcome file was opened. Raw data downloaded

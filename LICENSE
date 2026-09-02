@@ -1,4 +1,4 @@
-MIT License (applies to all files under code/)
+MIT License (applies to all files under code/ and coq/ (all source code in this repository))
 
 Copyright (c) 2026 Yaoharee Lahtee, Open Civil Science Initiative
 
@@ -20,5 +20,5 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Documents, preregistrations, and companion records (prereg/, docs/, paper/):
+Documents, preregistrations, and companion records (prereg/, docs/, paper/, results/, and root-level documents and figures (README.md, TODO_planned_analyses.md, REVIEW_2026-09-02.md, fig*.pdf, *.json)):
 Creative Commons Attribution 4.0 International (CC BY 4.0).

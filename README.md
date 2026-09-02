@@ -17,7 +17,7 @@ answer to.
 
 ## Layout
 ```
-paper/      manuscript LaTeX source (current public version)
+paper/      manuscript LaTeX sources (v20 review edition and v21 current)
 prereg/     frozen preregistrations (compatibility audit v1 & v2, C25–C31 second-round
             freezes, SOMA-READ flagship protocol) + SCORES_2026-09-02.md (scored
             outcomes, kept separate from the frozen texts)
@@ -139,4 +139,4 @@ Built by the ANSE.ASIA research pipeline (human founder + AI sessions) with the
 discipline recorded in the manuscript: tiered claims, full-text-or-NO-DATA holdings,
 maker–checker review before public release. This repository was assembled after an
 independent multi-agent adversarial review pass; the review's confirmed findings and
-their dispositions are recorded in `docs/`.
+their dispositions are recorded in `REVIEW_2026-09-02.md` (repo root) and `docs/`.

@@ -8,7 +8,6 @@ __pycache__/
 *.vos
 *.glob
 .*.aux
-fig1_adm_horizon.pdf
-fig2_rank.pdf
 .lia.cache
 .nra.cache
+external_data/
