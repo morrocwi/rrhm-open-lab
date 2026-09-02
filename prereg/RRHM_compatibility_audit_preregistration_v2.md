@@ -338,3 +338,9 @@ Exclusions: subjects with non-missing D in all cells entering a criterion; none 
 Prior guesses (recorded): C28.1 PASS p=0.65; C28.2 PASS p=0.7; C28.3 PASS p=0.7.
 Falsifiers: C28.1 reversal = M0 pattern (scored against typed lanes); C28.3 failure kills the
 "rating lane carries the stable individual structure" reading from C25.
+
+### C28-MAPPING (structure/codebook only, before outcome computation)
+Files: dataRat_RankStab.RData (col `rating`), dataSCR_RankStab.RData (col `log.rc.ampl`,
+the authors' log-transformed range-corrected SCR — chosen as their canonical transform).
+cs: CS_P/CS_M (US rows excluded); phase == 'acq'; timepoint T0/T1; all days pooled.
+D = mean(CS_P) − mean(CS_M) per subject × lane × timepoint over all acq trials.
