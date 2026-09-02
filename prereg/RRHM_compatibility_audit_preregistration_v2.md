@@ -405,3 +405,55 @@ occasion semantics (six-month retest vs within-visit phase transition ACQ→EX).
 parameters fitted to cross-time stability have no licensed correspondence to cross-phase
 stability. RULING (frozen): C30-B is NOT IDENTIFIABLE as parameter transport; declared ⊥,
 not attempted, per the standing rule that ⊥ is never converted to a result. C30-A is primary.
+
+### MANUSCRIPT FREEZE NOTICE (2026-09-02, author ruling)
+v21 rev4 is FROZEN: only typographical/error corrections permitted; no further
+interpretation edits. The post-hoc observation "stable lanes ⇒ M1 preferred / unstable
+lanes ⇒ M0 preferred" is explicitly NOT promoted to a theory rule — it is the question
+C31 exists to adjudicate, not an explanation of the C30 loss.
+
+### C31 — BOUNDARY ADJUDICATION [FROZEN 2026-09-02 before any C31 computation]
+Two frozen rival explanations of the C30-A external loss:
+H_M (measurement): IU-Hamburg rejected M1 because lane measurements there are too
+unreliable; degrading a known-M1 dataset's reliability to the same level should flip it
+to M0, and observed stability confounds reliability with persistence
+(r_observed = f(reliability, true persistence)).
+H_A (architecture): even with adequate reliability, some contexts carry no persistent
+typed-lane structure; after accounting for measurement error, M0 ≥ M1 remains.
+Measurement model (declared): X_{l,t,r} = T_{l,t} + eps_{l,t,r}; reliability =
+within-occasion agreement across parallel measurements; persistence = Corr(T_{l,T0},T_{l,T1}).
+Test–retest correlation alone CANNOT separate these; replicate measurements are required.
+
+#### C31.1 — degradation calibration (rankStab; CALIBRATION label, never independent confirmation — dataset already seen)
+Frozen protocol:
+- Reliability metric: odd/even split-half correlation of the discrimination score D across
+  subjects (split by trial parity within subject × phase × CS), Spearman–Brown corrected,
+  per lane per occasion. First compute this for BOTH datasets' RAT and SCR lanes
+  (rankStab acq T0/T1; IU-Hamburg ACQ/EX) — these IU-Hamburg values are the matching targets.
+- Degradation grid (frozen): trial-subsampling fraction f ∈ {1.0, 0.5, 0.25} × additive
+  trial-level Gaussian noise with SD = m × (per-subject trial-level SD), m ∈ {0, 1, 2, 4};
+  100 replicates per cell; base seed 20260902; applied to rankStab SCR and RAT trial rows
+  before D is computed.
+- At each cell: mean split-half reliability per lane, and the C29 4-variable M0-vs-M1
+  ΔBIC (acquisition), with 5 optimizer restarts per fit (reduced from 20 for compute;
+  declared here, applied identically to both models).
+- Frozen readouts: (a) at the grid cell(s) whose SCR reliability first falls to or below the
+  IU-Hamburg SCR level, report mean ΔBIC and P(ΔBIC ≤ −2); (b) does degradation alone carry
+  ΔBIC from the intact value into the M0-wins band?
+- Interpretation rule (frozen): P(ΔBIC ≤ −2) ≥ 0.5 at matched reliability ⇒ H_M remains
+  viable (measurement degradation suffices to flip the verdict); P(ΔBIC ≤ −2) ≤ 0.1 at
+  matched reliability ⇒ measurement degradation does NOT suffice ⇒ evidence toward H_A;
+  between ⇒ indeterminate.
+Prior guesses (recorded): H_M-viable outcome p=0.55; indeterminate p=0.25; toward-H_A p=0.20.
+
+#### C31.2 — external adjudication (third dataset; the four-cell table)
+Requirement: trial-level RAT + SCR, ≥2 occasions, enough trials for split-half reliability;
+mapping frozen before any cross-lane or model result is computed. Four frozen outcome cells:
+(reliability high, persistence high, M1) ⇒ typed transport; (low, low, M0) ⇒ measurement
+explanation stays live; (high, low, M0) ⇒ strong architectural boundary; (high, high, M0)
+⇒ "stable lanes are NOT sufficient for M1" — the falsifier that kills the C30 post-hoc
+boundary reading outright. Thresholds (frozen): reliability high = Spearman–Brown ≥ 0.60
+both lanes both occasions; persistence high = within-lane cross-occasion Spearman ≥ 0.30
+both lanes; model verdict by the frozen C29 BIC bands.
+Status: candidate search to be run; if no qualifying open dataset exists, C31.2 is recorded
+⊥ (with the candidate list), never downgraded to a weaker design silently.
