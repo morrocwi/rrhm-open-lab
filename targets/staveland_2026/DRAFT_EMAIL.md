@@ -1,3 +1,33 @@
+# PRIMARY — Variant S (short, prediction-first; author-approved direction 2026-09-02)
+
+Subject: A locked prediction about your Pac-Man data
+
+Dear Dr. Staveland,
+
+We reproduced your turnaround-by-reward result from your published Source Data
+(0.1114 vs your 0.1115; code public).
+
+We then publicly locked one prediction, with its failure criteria, before anyone
+could compute it:
+
+    A single task-geometry variable — the time remaining before capture minus the
+    time needed to reach the exit — predicts turnaround timing in held-out subjects
+    beyond ghost distance, speeds, reward, and your threat CDF.
+
+We cannot test it: the 20 Hz position streams needed to compute it are not in the
+public deposit. You can, in an afternoon. The lock (git commit, timestamped), the
+exact model specification, and the criteria under which we lose are all here:
+
+https://github.com/morrocwi/rrhm-open-lab/tree/main/targets/staveland_2026
+
+If it fails, we will record the failure publicly, as we have done before.
+If we have misread your task geometry, we would value the correction even more.
+
+Best regards,
+Yaoharee Lahtee
+Open Civil Science Initiative, Bangkok
+
+---
 # DRAFT — GATED. Do not send until all four items exist (protocol step 6 + author ruling 2026-09-02):
 # [ ] 1. Reproduction table (Original vs Reproduced, with code+commit)
 # [ ] 2. Frozen reanalysis (R1-v2, commit bf19562) — DONE, standing
