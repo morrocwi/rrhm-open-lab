@@ -497,3 +497,25 @@ is queued for v22 (gate: C31.2 adjudication), and lives until then in the compan
 this prereg only.
 Prior guesses (recorded): if the experiment is ever run — P-IL1 pass p=0.85; P-IL2 pass
 p=0.55; P-IL3 (B>A at matched evaluation) p=0.6.
+
+### C31.2 CLOSURE + ANNEX C31.2w [FROZEN 2026-09-02 before annex computation]
+C31.2 (external adjudication) status: **⊥-FINAL for the open-data channel at this date.**
+Grounds, recorded verbatim: (1) prime candidate Zenodo 22127185 (ART) is embargoed until
+2031-08-25; (2) Zenodo 21472062 (ROFL project, Klingelhöfer-Jens, Kuhn, Sommer, Lonsdorf)
+is open and structurally qualifying (trial-level RAT + SCR, T0/T1 six months apart) but is
+the SAME Hamburg recruitment cohort as rankStab (evidence: identical questionnaire variable
+names incl. StaiS_T0d1/AwaT0/USint_T0; exclusion ID lists running to 120; methods text
+"selected from a large recruitment cohort") — NOT independent, therefore NOT external;
+(3) all other surveyed candidates fail the lane/occasion requirements (list in SCORES).
+Unblocking paths (human): NDA-controlled datasets; the 2031 embargo lift; direct author
+contact for an independent two-occasion RAT+SCR dataset.
+ANNEX C31.2w (within-cohort four-cell computation on ROFL; LOUDLY NOT C31.2 — carries no
+external-adjudication weight; value = does the four-cell instrument behave, and does the
+same cohort reproduce the rankStab cell, on an independj-processed deposit?):
+Mapping (frozen from codebook only): dataRat.RData col rating; dataSCR.RData col
+log.rc.ampl; phase 'acq'; cs CS_P/CS_M; occasions timepoint T0/T1; D = mean(CS_P)−mean(CS_M);
+all subjects with complete cells (flags non_resp/dropout reported, not excluded in primary).
+Four-cell readouts (frozen thresholds from C31.2): split-half SB reliability per lane per
+occasion (odd/even by trial); persistence = within-lane T0↔T1 Spearman; model verdict =
+C29 4-variable M0-vs-M1 frozen BIC bands. Prior guess: cell (reliability adequate for SCR,
+persistence present, M1-preferred) p=0.6.
