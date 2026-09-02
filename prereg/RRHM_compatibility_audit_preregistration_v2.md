@@ -457,3 +457,43 @@ both lanes both occasions; persistence high = within-lane cross-occasion Spearma
 both lanes; model verdict by the frozen C29 BIC bands.
 Status: candidate search to be run; if no qualifying open dataset exists, C31.2 is recorded
 ⊥ (with the candidate list), never downgraded to a weaker design silently.
+
+### C32 — Sustained Social Attention / Interactional-Lock stress test [FROZEN 2026-09-02, before the SAD-rival literature was searched]
+Provenance: single-case observation (same individual as the dental/venipuncture material;
+CARE-consent precondition applies to any publication use): past panic when stared at or
+intently listened to for a sustained period; later spontaneous reduction to mild nervousness
+with no specific intervention. HYPOTHESIS GENERATOR ONLY — never empirical support.
+Named rival (first-class, must get the chance to kill): social-evaluation account of social
+anxiety disorder — Being observed → negative-evaluation threat → anxiety; its literature
+(fear of scrutiny, reduced eye contact, vigilance–avoidance to social cues, panic attacks
+co-occurring with SAD) is to be verified AFTER this freeze and cited only field-verified.
+Working hypothesis (RRHM, Dr-tier): the shared trigger across dental / failed venipuncture /
+sustained attention is NOT the needle, the mouth, or the gaze, but
+  uncertain remaining engagement time + restricted engagement-preserving correction
+  → contraction of the estimated engagement-recoverability horizon (êRRH↓),
+with escape physically available throughout (Open-Door structure, social domain).
+Candidate phenotype (frozen wording): "Panic emerges when continued engagement becomes
+temporally open-ended while engagement-preserving regulation feels increasingly unavailable."
+Killer dissociation experiment (design frozen; not yet runnable — needs a lab):
+Fix gaze intensity, evaluation threat, listener expression, physical distance, escape
+availability across all conditions; vary ONLY the engagement horizon:
+A known endpoint (30 s countdown); B unknown endpoint; C unknown endpoint + engagement-
+preserving pause ("5-s pause then continue", interaction survives); D unknown endpoint +
+escape-only button (press = conversation ends). Same number of control buttons in C and D.
+Frozen predictions:
+- P-IL1 (both theories predict, low diagnosticity): B > A on anxiety.
+- P-IL2 (RRHM-specific): C > D on maintained engagement and lower peak anxiety, despite
+  equal control availability — the value is in ENGAGEMENT-PRESERVING correction, not control.
+- P-IL3 (rival-specific): under the social-evaluation account, A ≈ B given identical gaze
+  and evaluation threat; a clear B > A difference at matched evaluation loads against it.
+Kill criteria for the RRHM reading: C ≈ D (engagement-preservation adds nothing beyond
+control count) kills P-IL2 and with it the interactional-lock extension; A ≈ B kills the
+horizon term in the social domain.
+Natural-course note (frozen): the observed spontaneous reduction is CONSISTENT WITH
+recalibration via repeated benign exposure (êRRH↑ without fear=0), matching RRHM's remission
+definition; single case, provenance only.
+Registry: OPEN-INTERACTIONAL-LOCK-001. Manuscript status: v21 rev4 is FROZEN — this case
+is queued for v22 (gate: C31.2 adjudication), and lives until then in the companion doc and
+this prereg only.
+Prior guesses (recorded): if the experiment is ever run — P-IL1 pass p=0.85; P-IL2 pass
+p=0.55; P-IL3 (B>A at matched evaluation) p=0.6.
