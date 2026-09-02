@@ -17,7 +17,7 @@ answer to.
 
 ## Layout
 ```
-paper/      manuscript LaTeX sources (v20 review edition and v21 current)
+paper/      manuscript sources: v20 review edition (.tex) and v21 current (.tex + compiled PDF)
 prereg/     frozen preregistrations (compatibility audit v1 & v2, C25–C31 second-round
             freezes, SOMA-READ flagship protocol) + SCORES_2026-09-02.md (scored
             outcomes, kept separate from the frozen texts)
