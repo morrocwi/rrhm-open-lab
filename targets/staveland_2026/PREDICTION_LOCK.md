@@ -9,4 +9,4 @@ fully pinned canonical spec) and the cohort pin — sealed by the tagged release
 ## Historical note
 An earlier same-day lock of this prediction exists in a separate working session; it has
 not been imported here and nothing in this package depends on it. The binding lock is the
-one above, and any future import will be recorded as an addition, never a substitution.
+one above, and any future import will be recorded as an addition, never a substitution — and unless and until it is imported with its own hash, it has no standing: the freeze above is the only lock.

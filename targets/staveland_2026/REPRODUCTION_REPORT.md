@@ -16,7 +16,9 @@ model summaries, making the comparison self-contained.
 
 Declared deviations: the MixedLM fit emits a ConvergenceWarning (MLE possibly at the random-slope boundary) — reported for completeness, estimates match regardless; engine ML vs Bayesian (expected near-agreement for Gaussian model —
 observed); our extracted sheet holds 34,609 rows vs their stated 34,298 observations
-(difference 311, unexplained by us; recorded). Script: code/03_reproduce_fig1_turnaround_reward.py
+(difference 311 — most plausibly exclusions applied in the authors' clean_behavioral_data.R
+that require columns absent from the Source Data sheet; recorded as our best hypothesis,
+not verified). Script: code/03_reproduce_fig1_turnaround_reward.py
 (self-fetches the Source Data file). Cohort columns confirm the file contains BOTH the
 online samples (30,343 rows) and the iEEG cohort (4,266 rows).
 
@@ -46,7 +48,9 @@ for R1, while R0 proceeds on Source Data.
   code reads live outside the repos), the finding is now DEFINITIVE:
   **the iEEG-cohort behavioral data required to reproduce the published behavioral and
   brain–behavior analyses is not publicly available, although the Zenodo record
-  description states behavioral data are included.** R0 (behavioral and brain-behavior
+  description states behavioral data are included.** We believe this is most likely an
+  archiving oversight rather than intentional, and we will gladly update this note the
+  moment the record is corrected. R0 (behavioral and brain-behavior
   arms) is BLOCKED on exactly this; the
   behavioral source is a question FOR the authors, recorded here first.
 - Authors' code located and pinned: github.com/bstavel/Staveland_et_al_Pacman_Statistics_and_Behavior
