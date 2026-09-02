@@ -1,0 +1,13 @@
+data_*_iu_hamburg_reading.csv
+*.zip
+giles.xlsx
+__pycache__/
+*.pyc
+*.vo
+*.vok
+*.vos
+*.glob
+.*.aux
+.lia.cache
+.nra.cache
+external_data/
