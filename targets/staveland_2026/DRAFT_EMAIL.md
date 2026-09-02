@@ -20,8 +20,11 @@ exact model specification, and the criteria under which we lose are all here:
 
 https://github.com/morrocwi/rrhm-open-lab/tree/main/targets/staveland_2026
 
-If it fails, we will record the failure publicly, as we have done before.
-If we have misread your task geometry, we would value the correction even more.
+Our own recorded prior is only 0.45 — the point is not our confidence, but that
+the prediction is locked and can lose. If it fails, we will record the failure
+publicly, as we have done before — and either way, we would be glad to record
+the outcome jointly. If we have misread your task geometry, we would value the
+correction even more.
 
 Best regards,
 Yaoharee Lahtee
