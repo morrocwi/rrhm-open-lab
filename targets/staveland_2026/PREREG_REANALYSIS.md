@@ -71,3 +71,34 @@ via Zenodo 17727554/17727552).
   .fif files carry the game-state channels is under verification. If behavior proves
   unavailable publicly, R1 waits for the authors' pointer — it does NOT proceed on
   reconstructed data.
+
+## R1-v2 AMENDMENT (2026-09-02, appended BEFORE any outcome computation; supersedes R1.a/R1.b criteria — original text retained above for provenance)
+Motivated by an internal adversarial simulation of the target team's likely review. Their
+strongest objections, adopted as design constraints:
+(a) "M^D may simply reparameterize distance/speed/trial type/escape probability" — so the
+    test must be INCREMENTAL and OUT-OF-SAMPLE, and the reparameterization outcome is a
+    first-class named result, not an insult;
+(b) no neural-to-construct mapping (theta/MFG is NOT eRRH; we never say it is);
+(c) this dataset cannot adjudicate RRHM's central engagement-preserving claim — stated in
+    every output.
+FROZEN criteria (replace R1.a/R1.b):
+- R1v2.a (behavioral, PRIMARY): leave-one-subject-out cross-validation. Baseline model of
+  last_away (trial_time): {distance_to_ghost, user speed, ghost speed, TrialType/reward,
+  cdf_distance threat, trial time} with random subject intercepts (fit per training fold).
+  Test model: baseline + M^D features (frozen at mapping: instantaneous M^D and per-trial
+  min-M^D). PASS = held-out log-likelihood (or ELPD) improves for the M^D model in a
+  MAJORITY of left-out subjects AND the mean held-out improvement > 0 with a participant
+  bootstrap 95% CI excluding zero. FAIL otherwise.
+- R1v2.b (neural, SECONDARY, only if R0 neural step reproduces): same held-out structure
+  with right-MFG HFA; identical PASS rule. Neural results are interpreted ONLY as "M^D
+  carries incremental information", never as localization of eRRH.
+- Named alternative outcome (frozen wording): if M^D adds nothing out-of-sample, the
+  recorded conclusion is "the preregistered recoverability proxy did not outperform the
+  existing threat variables; the present dataset fails to support that RRHM prediction" —
+  and the identifiability lesson feeds NEXT_EXPERIMENT.md. This is a publishable outcome
+  of equal standing.
+Prior guesses (recorded): R1v2.a PASS p=0.45 (down from 0.55 — the covariate set now
+includes speeds, which absorb part of M^D by construction); R1v2.b PASS p=0.30.
+Email gate (binding, per protocol step 6): no contact before (1) reproduction table
+Original-vs-Reproduced exists, (2) this freeze stands, (3) ONE held-out result (positive
+or negative) is archived, (4) the one-page next experiment is final.
