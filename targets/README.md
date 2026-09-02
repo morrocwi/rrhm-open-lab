@@ -22,4 +22,4 @@ Status legend: ✅ done · 🔒 frozen · ⏳ pending · ⊥ blocked/unresolved.
 
 | target | paper | status |
 |---|---|---|
-| staveland_2026 | 10.1038/s41467-026-70287-5 (Nat Commun) | scaffold + freezes; R0 ⏳ |
+| staveland_2026 | 10.1038/s41467-026-70287-5 (Nat Commun) | R0-1 reproduced ✅ · prediction locked 🔒 (release staveland-lock-v3) · R1 awaits the data holders |

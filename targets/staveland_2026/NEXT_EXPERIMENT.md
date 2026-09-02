@@ -23,7 +23,7 @@ Two actions, matched for salience, count, and motor cost:
   approach→avoid transition.
 - **P-S3 (dissociation):** at matched D_j, A-availability changes little — the horizon
   on the ENGAGEMENT-PRESERVING channel, not exit availability, carries the effect
-  (mirrors our C-vs-D logic in prereg case C32).
+  (mirrors the C-vs-D logic of our preregistered case C32 — see the repo-root [preregistration file](../../prereg/RRHM_compatibility_audit_preregistration_v2.md)).
 
 ## Kill criteria
 Transition time insensitive to D_j at matched threat ⇒ the eRRH term does no work in this

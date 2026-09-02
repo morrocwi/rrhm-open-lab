@@ -172,3 +172,11 @@ gate without finding this ruling beside it.
 Lock commits for citation: original freeze 98895aa · mapping 663aadf · R1-v2 bf19562 ·
 R1-v3 = the commit introducing this section (hash visible in git history and cited in
 README/letter after commit).
+
+### R1-v3 COHORT PIN (appended 2026-09-02, same freeze discipline; closes the one fork the
+audit found surviving the "ZERO choices" guarantee)
+PRIMARY analysis cohort = the iEEG cohort (the paper's subjects; the 4,266 iEEG-flagged
+rows in the Source Data are its per-trial trace). The full 211-subject sample (online +
+iEEG) is a SECONDARY, reported-alongside analysis, never substituted for the primary.
+PASS/FAIL under R1-v3 is adjudicated on the PRIMARY cohort only. Tie rule, bootstrap, and
+all other pins unchanged.
