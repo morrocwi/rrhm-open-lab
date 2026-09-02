@@ -7,16 +7,17 @@ Dear Dr. Staveland,
 We reproduced your turnaround-by-reward result from your published Source Data
 (0.1114 vs your 0.1115; code public).
 
-We then publicly locked one prediction, with its failure criteria, before anyone
-could compute it:
+We then publicly locked one prediction, with its failure criteria, before we — or
+anyone using only public data — could compute it:
 
     A single task-geometry variable — the time remaining before capture minus the
     time needed to reach the exit — predicts turnaround timing in held-out subjects
-    beyond ghost distance, speeds, reward, and your threat CDF.
+    beyond ghost distance, speeds, trial type, reward, your threat CDF, and time.
 
 We cannot test it: the 20 Hz position streams needed to compute it are not in the
-public deposit. You can, in an afternoon. The lock (git commit, timestamped), the
-exact model specification, and the criteria under which we lose are all here:
+public deposit. You can, in an afternoon. The lock (commits 98895aa/bf19562/66ca4eb, sealed by the tagged release
+staveland-lock-v1), a fully pinned specification an implementer can run without
+asking us anything, and the criteria under which we lose are all here:
 
 https://github.com/morrocwi/rrhm-open-lab/tree/main/targets/staveland_2026
 
@@ -32,9 +33,9 @@ Open Civil Science Initiative, Bangkok
 
 ---
 # DRAFT — GATED. Do not send until all four items exist (protocol step 6 + author ruling 2026-09-02):
-# [ ] 1. Reproduction table (Original vs Reproduced, with code+commit)
+# [x] 1. Reproduction table (Original vs Reproduced, with code+commit) — DONE b1d06d8
 # [ ] 2. Frozen reanalysis (R1-v2, commit bf19562) — DONE, standing
-# [ ] 3. ONE held-out result (positive or negative), archived and reproducible
+# [3] transferred BY DESIGN to the data holders for Variant S (gate amendment in PREREG_REANALYSIS.md R1-v3)
 # [ ] 4. One-page next experiment — DONE (NEXT_EXPERIMENT.md)
 #
 # The letter below is the POST-RESULT shape (both variants). The earlier theory-first

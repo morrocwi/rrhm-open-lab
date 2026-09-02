@@ -1,4 +1,11 @@
-# Prediction lock — status: ⊥ IMPORT PENDING (verbatim text held in a peer session)
+# Prediction lock — where the lock lives
+
+**The binding, operationally frozen prediction for this target is in
+[`PREREG_REANALYSIS.md`](PREREG_REANALYSIS.md)** — freeze commits 98895aa (original) ·
+663aadf (mapping) · bf19562 (R1-v2, held-out criteria, prior 0.45) · 66ca4eb (R1-v3,
+fully pinned canonical spec) — sealed by the tagged release `staveland-lock-v1`.
+
+## Historical note: an earlier peer-session lock (status: ⊥ import pending)
 
 An RRHM prediction lock for this paper was frozen in a peer working session on
 **2026-09-02 17:01 ICT** with its own git commit. Per the corpus's provenance discipline,

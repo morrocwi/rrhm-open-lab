@@ -14,7 +14,7 @@ model summaries, making the comparison self-contained.
 | subjects | 211 | 211 |
 | N obs | 34,298 | 34,609 |
 
-Declared deviations: engine ML vs Bayesian (expected near-agreement for Gaussian model —
+Declared deviations: the MixedLM fit emits a ConvergenceWarning (MLE possibly at the random-slope boundary) — reported for completeness, estimates match regardless; engine ML vs Bayesian (expected near-agreement for Gaussian model —
 observed); our extracted sheet holds 34,609 rows vs their stated 34,298 observations
 (difference 311, unexplained by us; recorded). Script: code/03_reproduce_fig1_turnaround_reward.py
 (self-fetches the Source Data file). Cohort columns confirm the file contains BOTH the

@@ -16,7 +16,7 @@ so that the answer can be **no**.
 | | | |
 |---|---|---|
 | **[Reproduction](REPRODUCTION_REPORT.md)** | **[Prediction lock](PREREG_REANALYSIS.md)** | **[Next experiment](NEXT_EXPERIMENT.md)** |
-| original data + original code → original result (status inside; nothing claimed before it runs) | frozen before any outcome: held-out, subject-wise, incremental over distance/speed/trial-type/reward/threat; the "your margin just reparameterizes distance" outcome is a named, publishable result | the one-page task modification that separates threat imminence from engagement-preserving recoverability — the thing the current dataset cannot test, said by us first |
+| first result reproduced: 0.1114 vs original 0.1115 (table + self-fetching script inside) | frozen before any outcome: held-out, subject-wise, incremental over distance/speed/trial-type/reward/threat; the "your margin just reparameterizes distance" outcome is a named, publishable result | the one-page task modification that separates threat imminence from engagement-preserving recoverability — the thing the current dataset cannot test, said by us first |
 
 **Three things we state up front**
 1. The existing dataset **cannot adjudicate RRHM's central claim** (no engagement-preserving
@@ -26,7 +26,6 @@ so that the answer can be **no**.
    The neural test (if run) asks only whether a task-geometry margin carries incremental
    information.
 3. A negative result is recorded as a failure of the RRHM prediction on this dataset, verbatim,
-   in the same file as a positive one would be. Our track record of doing exactly that is in
-   the repo root (`prereg/SCORES_2026-09-02.md` — including a triggered falsifier, C30).
+   in the same file as a positive one would be. Our track record of doing exactly that: [a triggered falsifier, recorded verbatim (case C30)](../../prereg/SCORES_2026-09-02.md).
 
 *Optional: [full theory manuscript (v21, PDF)](../../paper/) — not required for anything above.*
